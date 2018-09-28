@@ -113,7 +113,7 @@ renderB: <ul class: 'marginLeft10'>
 vue内部是通过数据劫持的方式来做到数据绑定的，其中最核心的方法就是通过Object.defineProperty()的getter和setter来实现对数据劫持，达到监听数据变动的目的。
 
 2. vue中虚拟DOM生成DOM的过程
-![virtual dom tree](https://img-blog.csdn.net/20180423112303728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
+![virtual dom tree2](https://img-blog.csdn.net/20180423112303728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
 
 3. DocumentFragment和vue异步更新队列
 [DocumentFragment](https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment)是容许把一些DOM操作先应用到一个dom片段里，然后再将这个片段append到DOM树里，从而来减少页面的reflow次数。
@@ -135,4 +135,21 @@ vue里面的一些dom的一些变化，都是在DocumentFragment容器中去操�
 走到这里，你会发现还有一个问题。就算vue使用了虚拟dom，将一些改动先同步到虚拟对象上，然后去改动真实DOM。这其中，去改动真实DOM还是使用了原生的api去操作DOM，还是会不可避免的去reflow整个页面，如果不能把这些更新操作打包起来集中去更新真实DOM，那其实完全散失了虚拟DOM的作用性，反而变得更加冗余。<br/>
 这时候框架的价值就体现出来了，vue中，如果在同一次事件循环中如果观察到有多个数据变化，vue会开启一个[异步更新队列](https://cn.vuejs.org/v2/guide/reactivity.html)，并缓冲在同一事件循环中发生的所有数据改变。然后在下一个的事件循环‘tick’中，vue刷新队列并执行实际工作。这样就可以批量的去更新多次数据变化到虚拟dom对象中，diff差异，同步到页面中的真实dom里。
 ## 在react中是如何使用虚拟dom来绑定和渲染模板的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
