@@ -101,10 +101,28 @@ renderB: <ul class: 'marginLeft10'>
 第四种。节点发生了移动，增加，或者删除操作。该过程称为REOREDR。[虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
 ![插入DOM-1](https://upload-images.jianshu.io/upload_images/1959053-b592d77d1cc244e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)
 如果在一些节点中间插入一个F节点，简单粗暴的做法是：卸载C，装载F，卸载D，装载C，卸载E，装载D，装载E。如下图：
-![插入DOM-2](https://res.infoq.com/articles/react-dom-diff/zh/resources/0909005.png)
+![插入DOM-2](https://res.infoq.com/articles/react-dom-diff/zh/resources/0909005.png)<br />
 这种方法显然是不高效的。<br/>
 而如果给每个节点唯一的标识(key)，那么就能找到正确的位置去插入新的节点。
-![插入DOM-3](https://res.infoq.com/articles/react-dom-diff/zh/resources/0909006.png)
+![插入DOM-3](https://res.infoq.com/articles/react-dom-diff/zh/resources/0909006.png)<br />
 这也就是为什么vue/react等框架，会要求我们在写循环遍历结构的时候要写key值
 ## 在vue2.0中是如何使用虚拟dom来绑定和渲染模板的
 ## 在react中是如何使用虚拟dom来绑定和渲染模板的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
