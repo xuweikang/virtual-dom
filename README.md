@@ -4,11 +4,11 @@
 ## 浏览器是怎样解析HTML并且绘出整个页面的
 ![webkit处理流程](https://upload-images.jianshu.io/upload_images/1959053-7c24fdb60936bd96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/636/format/webp)
 
-上图为webkit引擎浏览器的处理流程，如上图大致分为4大步：
-第一步，HTML解析器分析html，构建一颗DOM树；
-第二步，CSS解析器会分析外联的css文件和内联的一些样式，创建一个页面的样式表；
-第三步，将DOM树和样式表关联起来，创建一颗Render树。这一过程又被称为Attachment，每个DOM节点上都有一个attach方法，会接收对应的样式表，返回一个render对象。这些render对象最终会结合成一个render tree；
-第四步，有了render tree后，浏览器就可以为render tree上的每个节点在屏幕上分配一个精确的位置坐标，然后各个节点会调用自身的paint方法结合坐标信息，在浏览器中绘制中整个页面了。
+上图为webkit引擎浏览器的处理流程，如上图大致分为4大步：<br />
+第一步，HTML解析器分析html，构建一颗DOM树；<br />
+第二步，CSS解析器会分析外联的css文件和内联的一些样式，创建一个页面的样式表；<br />
+第三步，将DOM树和样式表关联起来，创建一颗Render树。这一过程又被称为Attachment，每个DOM节点上都有一个attach方法，会接收对应的样式表，返回一个render对象。这些render对象最终会结合成一个render tree；<br />
+第四步，有了render tree后，浏览器就可以为render tree上的每个节点在屏幕上分配一个精确的位置坐标，然后各个节点会调用自身的paint方法结合坐标信息，在浏览器中绘制中整个页面了。<br />
 ## 回流（reflow）和重绘
 回流和重绘都是浏览器自身的行为
 回流：当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程成为重绘。
