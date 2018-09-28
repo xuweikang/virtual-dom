@@ -107,13 +107,13 @@ renderB: <ul class: 'marginLeft10'>
 ![插入DOM-3](https://res.infoq.com/articles/react-dom-diff/zh/resources/0909006.png)<br />
 这也就是为什么vue/react等框架，会要求我们在写循环遍历结构的时候要写key值
 ## 在vue2.0中是如何使用虚拟dom来绑定和渲染模板的
-![virtual dom tree](https://img-blog.csdn.net/20180423112253119?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
+![流程图1](https://img-blog.csdn.net/20180423112253119?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
 
 1. 监听数据的变化
 vue内部是通过数据劫持的方式来做到数据绑定的，其中最核心的方法就是通过Object.defineProperty()的getter和setter来实现对数据劫持，达到监听数据变动的目的。
 
 2. vue中虚拟DOM生成DOM的过程
-![virtual dom tree2](https://img-blog.csdn.net/20180423112303728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
+![流程图2](https://img-blog.csdn.net/20180423112303728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZvcmV2ZXIyMDEyOTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)<br />
 
 3. DocumentFragment和vue异步更新队列
 [DocumentFragment](https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment)是容许把一些DOM操作先应用到一个dom片段里，然后再将这个片段append到DOM树里，从而来减少页面的reflow次数。
